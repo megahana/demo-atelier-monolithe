@@ -1,0 +1,1 @@
+export function createFrameGuard(){let seconds=0,frames=0,slowWindows=0;return {reset(){seconds=0;frames=0;slowWindows=0},sample(delta:number){seconds+=delta;frames++;if(seconds<1)return false;const fps=frames/seconds;slowWindows=fps<30?slowWindows+1:0;seconds=0;frames=0;return slowWindows>=2}}}
